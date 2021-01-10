@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<%- include('./partials/head.ejs') %>
+<body class="index">
+    <h1>YTMP3</h1>
+    <form action="/convert" class="link-form" method="POST">
+        <input type="text" class="input-link" placeholder="paste the link" name="url">
+        <button class="submit-link" type="submit">Go</button>
+    </form>
+    <div class="test"></div>
+	<% if (error) {%>
+		<div class="warning"><%= error %></div>
+	<% } %>
+</body>
+</html>
+
