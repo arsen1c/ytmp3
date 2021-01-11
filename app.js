@@ -43,7 +43,7 @@ app.post('/convert',  async (req, res) => {
 				likes: result.videoDetails.likes,
 				dislikes: result.videoDetails.dislikes,
 				videoUrl: result.videoDetails.video_url,
-				thumbnail: result.videoDetails.thumbnails[0].url,
+				thumbnail: result.videoDetails.thumbnails[1].url,
 				bitRate,
 				bitRateURL
 			};
@@ -62,6 +62,6 @@ app.use((req, res) => {
 })
 
 app.listen(3000, () => {
-	console.log('LIstening on port 3000')
+	console.log('Listening on port 3000')
 })
 

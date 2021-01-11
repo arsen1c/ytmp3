@@ -1,8 +1,12 @@
 const ytdl = require('ytdl-core');
-
-const main  =  async () => {	
-	const info = await ytdl.getInfo('https://www.youtube.com/watch?v=j5-yKhDd64s');
-	console.log(info);
+const fs = require('fs');
+// const main  =  async () => {	
+// 	const info = await ytdl.getInfo('https://www.youtube.com/watch?v=j5-yKhDd64s');
+// 	console.log(info);
+// }
+ 
+const main = async () => {
+	ytdl('https://www.youtube.com/watch?v=j5-yKhDd64s').pipe(fs.createWriteStream('Music.mp3'))
 }
 
 main();

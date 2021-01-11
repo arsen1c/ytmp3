@@ -13,7 +13,7 @@ bitRateBtn.forEach(button => {
 			downloadDiv.removeChild(sound);
 
 			// Create the audio element
-			downloadDiv.innerText = e.target.innerText + 'bit audio';
+			downloadDiv.innerText = 'Download quality ' + e.target.innerText + 'bits';
 			const audio = document.createElement('audio');
 			audio.id = 'audio-player';
 			audio.controls = 'controls';
@@ -23,7 +23,7 @@ bitRateBtn.forEach(button => {
 			downloadDiv.appendChild(audio);
 		} else {
 			// Create the audio element
-			downloadDiv.innerText = e.target.innerText + 'bits';
+			downloadDiv.innerText = 'Download quality ' + e.target.innerText + 'bits';
 			const audio = document.createElement('audio');
 			audio.id = 'audio-player';
 			audio.controls = 'controls';
@@ -34,3 +34,6 @@ bitRateBtn.forEach(button => {
 		}
 	})
 })
+
+
+

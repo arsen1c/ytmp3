@@ -12,11 +12,12 @@ body {
 
 .card {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	margin-top: 10rem;
+	margin-top: 6rem;
 	padding: 2rem;
-	max-width: auto;
+	width: 900px;
 	background: var(--body-color);
 }
+
 
 .result-grid {
 	margin-top: 2rem;
@@ -34,7 +35,6 @@ body {
 
 .song-title {
 	display: flex;
-	justify-content: space-between;
 }
 
 .song-title * {
@@ -48,21 +48,22 @@ a:hover {
 
 a {
 	color: var(--primary-font);
-	
 }
 
-button {
+.bitRateBtn {
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 	margin: 10px 5px 10px 0; 
-    padding: 0.1rem;
+    padding: 0.1rem 0.4rem;
     font-size: 1.5rem;
     border: none;
     outline: 0;
     color: var(--primary-font);
     background: #fff;
     cursor: pointer;
+    border-radius: 4px;
     transition: all 0.3s ease;
 }
-button:hover {
+.bitRateBtn:hover {
     background: var(--primary-font);
     color: #fff;
 }
@@ -70,4 +71,33 @@ button:hover {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+
+.download-link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #0d0d0d;
+	padding: 1rem;
+	color: white;
+	font-weight: bold;
+}
+
+.download-link * {
+	margin-top: 1rem;
+}
+
+
+
+@media (max-width: 560px) {
+	.card {
+		margin-top: 2rem;
+		width: 100%;
+	}
+	
+	.song-title {
+		/*flex-direction: column;*/
+		display: block;
+	}
 }
