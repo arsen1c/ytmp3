@@ -24,9 +24,9 @@ app.post('/convert',  async (req, res) => {
 	const url = req.body.url;
 
 	if (!(url.includes('youtube') || url.includes('youtu.be'))) {
-		res.render('index', { error: 'Please include YouTube links only!' })
+		res.render('index', { error: 'Just gimme a single YouTube video link :)' })
 	} else if (url.includes('&list')) {
-		res.render('index', { error: 'I can handle only a single video' })
+		res.render('index', { error: 'Gimme just a single video ID playa! Don\'t throw a playlist on me' })
 	} else {
 		// call the extractData function from convert.js
 		// pass the url to it
@@ -39,6 +39,7 @@ app.post('/convert',  async (req, res) => {
 			const details = {
 				title: result.videoDetails.title,
 				author: result.videoDetails.author.name,
+				views: result.videoDetails.viewCount,
 				likes: result.videoDetails.likes,
 				dislikes: result.videoDetails.dislikes,
 				videoUrl: result.videoDetails.video_url,

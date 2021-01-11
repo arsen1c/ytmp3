@@ -1,0 +1,73 @@
+@import('./style.css');
+
+body {
+	background: var(--primary-color)
+}
+
+.result {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-top: 10rem;
+	padding: 2rem;
+	max-width: auto;
+	background: var(--body-color);
+}
+
+.result-grid {
+	margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	grid-auto-rows: 100px;
+	grid-gap: 10px;
+}
+
+.result-grid > div p {
+	font-weight: bold;
+	margin: 0.5rem 0;
+	color: white;
+}
+
+.song-title {
+	display: flex;
+	justify-content: space-between;
+}
+
+.song-title * {
+	margin-right: 1rem; 
+}
+
+a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+a {
+	color: var(--primary-font);
+	
+}
+
+button {
+	margin: 10px 5px 10px 0; 
+    padding: 0.1rem;
+    font-size: 1.5rem;
+    border: none;
+    outline: 0;
+    color: var(--primary-font);
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background: var(--primary-font);
+    color: #fff;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}

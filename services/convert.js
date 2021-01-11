@@ -15,15 +15,15 @@ const extractData = async (url) => {
 
 const getBitrates = (formats) => {
 	const audioFormats = ytdl.filterFormats(formats, 'audioonly');
-	const bitRate = []
-	const urls = {}
+	const bitRate = [];
+	const urls = {};
 	for(audio in audioFormats) {
 		bitRate.push(audioFormats[audio]['audioBitrate'])
 		urls[audio] = audioFormats[audio]['url']
 	}
 	// console.log(urls)
 
-	return [bitRate, urls];
+	return [bitRate.sort((a, b) => a - b), urls];
 }
 
 

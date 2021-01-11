@@ -2,29 +2,42 @@
 <html>
 
 <%- include('./partials/head.ejs') %>
-
+<link rel="stylesheet" href="../../css/convert.css">
 <body>
 	<div class="result">
-        <% if (details) { %>
-	        <h1>Title:
-	            <%= details.title %>
-	        </h1>
-	        <h3>Author:</h3> <p><%= details.author %></p>
-			<h3>Likes:</h3> <p><%= details.likes %></p>
-			<h3>Dislikes:</h3> <p><%= details.dislikes %></p>
-			<h3>VideoUrl:</h3> <a target="_blank" href=<%=details.videoUrl %>>Open</a>
-			<h3>Bit-Rates</h3> 
-			<% for (x in details.bitRate) {%>
-				<button class="bitRateBtn" data-link=<%= details.bitRateURL[x] %>> <%= details.bitRate[x] %></button>
-			<% } %>
-			<div class="download-link block">
-				
-			</div>
-			<h3>Thumbnail</h3>
-			<img src=<%= details.thumbnail %>> 
-        <% } else { %>
-        	<p>Something went wrong</p>
-        <% } %>
+        <div class="card">
+        	<% if (details) { %>
+        		<div class="song-title">
+        			<img src=<%= details.thumbnail %>> 
+		        	<h1 class="title"><a title="Play on Youtube" target="_blank" href=<%=details.videoUrl %>><%= details.title %></a></h1>
+        		</div>
+		        <div class="result-grid">
+		        	<div class="author">
+		        		<h3>Channel Name</h3> <p><%= details.author %></p>
+		        	</div>
+		        	<div class="views">
+						<h3>Views</h3> <p><%= details.views %></p>
+					</div>
+					<div class="likes">
+						<h3>Likes</h3> <p><%= details.likes %></p>
+					</div>
+					<div class="dislikes">
+						<h3>Dislikes</h3> <p><%= details.dislikes %></p>
+					</div> 
+					<div class="bitrates">
+						<h3>Select Bit-Rate</h3> 
+						<% for (x in details.bitRate) {%>
+							<button class="bitRateBtn" data-link=<%= details.bitRateURL[x] %>> <%= details.bitRate[x] %></button>
+						<% } %>
+					</div>
+			    </div>
+				<div class="download-link block">
+	
+				</div>
+	        <% } else { %>
+	        	<p>Something went wrong</p>
+	        <% } %>
+        </div>
     </div>
 
     <script src="../js/convertScript.js" defer></script>

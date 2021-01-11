@@ -18,7 +18,7 @@ bitRateBtn.forEach(button => {
 			audio.id = 'audio-player';
 			audio.controls = 'controls';
 			audio.src =  e.target.getAttribute('data-link');
-			audio.type = 'audio/webm';
+			audio.type = 'audio/mp3';
 
 			downloadDiv.appendChild(audio);
 		} else {
