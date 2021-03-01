@@ -24,13 +24,13 @@
 					<div class="dislikes">
 						<h3>Dislikes</h3> <p><%= details.dislikes %></p>
 					</div> 
-					<div class="bitrates">
+					<!-- <div class="bitrates">
 						<h3>Select Bit-Rate</h3> 
-						<% for (x in details.bitRate) {%>
-							<button class="bitRateBtn" data-link=<%= details.bitRateURL[x] %>> <%= details.bitRate[x] %></button>
-						<% } %>
-					</div>
+							<button class="bitRateBtn" data-link=> </button>
+						
+					</div> -->
 			    </div>
+					<a href="/download/<%= details.downloadTitle %>" class="bitRateBtn">Download</a>
 				<div class="download-link block"></div>
 	        <% } else { %>
 	        	<p>Something went wrong</p>

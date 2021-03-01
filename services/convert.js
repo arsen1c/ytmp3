@@ -1,10 +1,15 @@
 const ytdl = require('ytdl-core');
+const fs = require('fs');
 
 const extractData = async (url) => {
 	console.log('URL is:', url);
 	try {
 		return ytdl.getInfo(url)
-		.then(result => result)
+		.then(result => {
+			// Download the song
+			ytdl(`${result.videoDetails.video_url}`).pipe(fs.createWriteStream(`./uploads/${result.videoDetails.title.split(' ').join('-')}.mp3`));
+			return result;
+		})
 		.catch(() => console.log('Invalid Video ID'));
 	} catch (err) {
 		return {

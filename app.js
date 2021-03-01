@@ -24,9 +24,9 @@ app.post('/convert',  async (req, res) => {
 	const url = req.body.url;
 
 	if (!(url.includes('youtube') || url.includes('youtu.be'))) {
-		res.render('index', { error: 'Just gimme a single YouTube video link :)' })
+		res.render('index', { error: 'I only accept youtube links :)' })
 	} else if (url.includes('&list')) {
-		res.render('index', { error: 'Gimme just a single video ID playa! Don\'t throw a playlist on me' })
+		res.render('index', { error: 'Calm down! Don\'t throw a playlist on me' })
 	} else {
 		// call the extractData function from convert.js
 		// pass the url to it
@@ -44,6 +44,7 @@ app.post('/convert',  async (req, res) => {
 				dislikes: result.videoDetails.dislikes,
 				videoUrl: result.videoDetails.video_url,
 				thumbnail: result.videoDetails.thumbnails[1].url,
+				downloadTitle: result.videoDetails.title.split(' ').join('-'),
 				bitRate,
 				bitRateURL
 			};
@@ -54,6 +55,13 @@ app.post('/convert',  async (req, res) => {
 			res.render('index', { error: 'Invalid Video ID' })
 		}
 	}
+})
+
+// Download Route
+app.get('/download/:songName', (req, res) => {
+	const filePath = `${__dirname + '/uploads/' + req.params.songName}.mp3`
+	console.log('File path: ' + filePath);
+	res.download(filePath);
 })
 
 // Send 404 if endpoint is invalid

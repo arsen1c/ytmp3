@@ -1,4 +1,4 @@
-node_module/
+node_module
 test.js 
 http.txt  
 package-lock.json

@@ -1,4 +1,4 @@
-const bitRateBtn = document.querySelectorAll('.bitRateBtn');
+// const bitRateBtn = document.querySelectorAll('.bitRateBtn');
 const downloadDiv = document.querySelector('.download-link');
 const audioSrc = document.querySelector('source');
 
