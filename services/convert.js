@@ -1,5 +1,9 @@
 const ytdl = require('ytdl-core');
 const fs = require('fs');
+require('dotenv').config();
+
+const cookies = process.env.COOKIES;
+console.log('Cookies: ' + cookies);
 
 const extractData = async (url) => {
 	console.log('URL is:', url);
@@ -7,7 +11,13 @@ const extractData = async (url) => {
 		return ytdl.getInfo(url)
 		.then(result => {
 			// Download the song
-			ytdl(`${result.videoDetails.video_url}`).pipe(fs.createWriteStream(`./uploads/${result.videoDetails.title}.mp3`));
+			ytdl(`${result.videoDetails.video_url}`, {
+				requestOptions: {
+					headers: {
+						'Cookie': cookies
+					}
+				}
+			}).pipe(fs.createWriteStream(`./uploads/${result.videoDetails.title}.mp3`));
 			return result;
 		})
 		.catch(() => console.log('Invalid Video ID'));
