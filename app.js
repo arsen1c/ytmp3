@@ -44,7 +44,6 @@ app.post('/convert',  async (req, res) => {
 				dislikes: result.videoDetails.dislikes,
 				videoUrl: result.videoDetails.video_url,
 				thumbnail: result.videoDetails.thumbnails[1].url,
-				downloadTitle: result.videoDetails.title.split(' ').join('-'),
 				bitRate,
 				bitRateURL
 			};

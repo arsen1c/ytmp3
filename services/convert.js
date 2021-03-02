@@ -7,7 +7,7 @@ const extractData = async (url) => {
 		return ytdl.getInfo(url)
 		.then(result => {
 			// Download the song
-			ytdl(`${result.videoDetails.video_url}`).pipe(fs.createWriteStream(`./uploads/${result.videoDetails.title.split(' ').join('-')}.mp3`));
+			ytdl(`${result.videoDetails.video_url}`).pipe(fs.createWriteStream(`./uploads/${result.videoDetails.title}.mp3`));
 			return result;
 		})
 		.catch(() => console.log('Invalid Video ID'));
