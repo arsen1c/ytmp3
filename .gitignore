@@ -1,5 +1,5 @@
-node_module
+node_modules
 test.js 
 http.txt  
 package-lock.json
-
+.env
